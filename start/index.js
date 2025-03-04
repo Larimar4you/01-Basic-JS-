@@ -175,13 +175,38 @@ const movies = [
 
 // console.log("Hello!");
 
-fetch("https://meowfacts.herokuapp.com/?lang=ukr")
-  .then((response) => {
-    if (!response.ok) {
-      throw new Error("Response was not ok");
-    }
-    console.log(response);
-    return response.json();
-  })
+// fetch("https://meowfacts.herokuapp.com/?lang=ukr")
+//   .then((response) => {
+//     if (!response.ok) {
+//       throw new Error("Response was not ok");
+//     }
+//     console.log(response);
+//     return response.json();
+//   })
 
-  .then((data) => console.log(data));
+//   .then((data) => console.log(data));
+// // .catch((err) => alert("invalid adress"));
+
+// console.log("Hello!");
+
+//Async // await
+
+// async function getFilm() {
+//   const response = await fetch("https://meowfacts.herokuapp.com/?lang=ukr");
+//   const data = await response.json();
+//   console.log(data);
+// }
+
+// getFilm();
+
+//////////////////[<()>]/////////////////////////////////////////////////
+
+async function getFilm() {
+  const response = await fetch(
+    " http://www.omdbapi.com/?i=tt3896198&apikey=11e360a6"
+  );
+  const data = await response.json();
+  console.log(data);
+}
+
+getFilm();
