@@ -181,6 +181,7 @@ fetch("https://meowfacts.herokuapp.com/?lang=ukr")
       throw new Error("Response was not ok");
     }
     console.log(response);
+
     return response.json();
   })
 
