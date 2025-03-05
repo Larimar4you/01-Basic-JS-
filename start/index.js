@@ -202,12 +202,31 @@ const movies = [
 //////////////////[<()>]/////////////////////////////////////////////////
 ///OMDBapi///
 
+// async function getFilm() {
+//   const response = await fetch(
+//     " http://www.omdbapi.com/?i=tt3896198&apikey=11e360a6&s=batman&y=2017"
+//   );
+//   const data = await response.json();
+//   console.log(data);
+// }
+
+// getFilm();
+///////////////////////////////////////////////////////////////////////////
+
 async function getFilm() {
-  const response = await fetch(
-    " http://www.omdbapi.com/?i=tt3896198&apikey=11e360a6&s=batman&y=2017"
-  );
-  const data = await response.json();
-  console.log(data);
+  try {
+    const response = await fetch(
+      "http://www.omdbapi.com/?i=tt3896198&apikey=11e360a6&s=batman&y=2017"
+    );
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    const data = await response.json();
+    console.log(data);
+  } catch (error) {
+    console.error("Error fetching the film data:", error);
+  }
 }
 
 getFilm();
+///////////////////////////////////////////////////////////////////////////
